@@ -13,6 +13,11 @@ pygame.display.set_caption*("Avoid The Falling Objects!")
 clock = pygame.time.Clock() # game runs on frames
 FPS = 60 # Game updates 60 times per second
 
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
 # Create player object
 # Object - a data type that allows us to pass in unique data includind functions and other objects. 
 
@@ -31,4 +36,38 @@ class Player:
                 self.x += self.playerSpeed
 
     def draw(self):
-        pygame.draw.rect(screen, (0,0,255), (self.x, self.y, self.playerWidth, self.playerHeight))
+        pygame.draw.rect(screen, (0,0,255), (self.x, self.y, self.playerWidth, self.playerHeight)) 
+
+class FallingObject:
+    def __init__(self):
+        self.x = -50
+        self.y = 50
+        self.width = 50
+        self.height = 50
+        self.speed = random.randit(3,7)
+
+    def move(self):
+        self.y += self.speed
+
+    def draw(self):
+        pygame.draw.react(screen,
+        (255, 0, 0,) (self.x,self.y, self.width, self.height))
+    def off_screen(self):
+        return self.y > height
+
+        # Game Loop
+
+player = Player()
+falling_object = []
+score = 0
+lives = 3
+
+running = True
+
+while running:
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+pygame.quit
